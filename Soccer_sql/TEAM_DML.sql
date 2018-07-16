@@ -29,3 +29,6 @@ update teamw set roll =
     else 'ÆÀ¿ø'
 end
 ;
+select * from subject;
+
+select * from team;

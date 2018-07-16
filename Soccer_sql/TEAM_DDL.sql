@@ -1,95 +1,243 @@
-select * from tab;
-drop table teamw;
-drop table teamz;
---drop foreign key 
-
-ALTER TABLE teamw ADD CONSTRAINT teamz_fk_team_id
-	FOREIGN KEY(team_id) REFERENCES teamz(team_id);
+ALTER TABLE TEAMW ADD CONSTRAINT TEAMZ_FK_TEAM_ID
+	FOREIGN KEY(TEAM_ID) REFERENCES TEAMZ(TEAM_ID);
 
 
-create table teamz(
-    team_id VARCHAR2(20) PRIMARY KEY,
-    team_name VARCHAR2(20)
+CREATE TABLE TEAMZ(
+    TEAM_ID VARCHAR2(20) PRIMARY KEY,
+    TEAM_NAME VARCHAR2(20)
 );
 
-create table teamw(
-    mem_id varchar2(20) PRIMARY KEY,
-    team_id varchar2(20),
-    mem_name varchar2(20),
-    mem_age DECIMAL,
-    roll varchar2(20)
+CREATE TABLE TEAMW(
+    MEM_ID VARCHAR2(20) PRIMARY KEY,
+    TEAM_ID VARCHAR2(20),
+    MEM_NAME VARCHAR2(20),
+    MEM_AGE DECIMAL,
+    ROLL VARCHAR2(20)
 );
 
-insert into teamz(
-    team_id, team_name
+INSERT INTO TEAMZ(
+    TEAM_ID, team_name
 )
-values(
+VALUES(
     'ateam', 'Àú½ºÆ¼½º'
 );
-insert into teamz(
-    team_id, team_name
+INSERT INTO TEAMZ(
+    TEAM_ID, team_name
 )
-values(
+VALUES(
     'hteam', '¾Æ¸¶Á¶³×½º'
 );
-insert into teamz(
-    team_id, team_name
+INSERT INTO TEAMZ(
+    TEAM_ID, team_name
 )
-values(
+VALUES(
     'cteam', '°¡¿À°¶'
 );
-insert into teamz(
-    team_id, team_name
+INSERT INTO TEAMZ(
+    TEAM_ID, team_name
 )
-values(
+VALUES(
     'steam', '¾îº¥Á®½º'
 );
 
 	
 --ateam
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('a1','ateam','ÇüÁØ',34,'ÆÀÀå');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('a2','ateam','¼¼ÀÎ',35,'ÆÀ¿ø');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('a3','ateam','ÈñÅÂ',21,'ÆÀ¿ø');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('a4','ateam','»óÈÆ',29,'ÆÀ¿ø');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('a5','ateam','ÅÂÇü',25,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('a1','ateam','ÇüÁØ',34,'ÆÀÀå');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('a2','ateam','¼¼ÀÎ',35,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('a3','ateam','ÈñÅÂ',21,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('a4','ateam','»óÈÆ',29,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('a5','ateam','ÅÂÇü',25,'ÆÀ¿ø');
 
 --hteam
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('h1','hteam','Çý¸®',26,'ÆÀÀå');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('h2','hteam','ÁöÀº',26,'ÆÀ¿ø');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('h3','hteam','´Ü¾Æ',26,'ÆÀ¿ø');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('h4','hteam','Àç°æ',30,'ÆÀ¿ø');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('h5','hteam','ÁØ',27,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('h1','hteam','Çý¸®',26,'ÆÀÀå');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('h2','hteam','ÁöÀº',26,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('h3','hteam','´Ü¾Æ',26,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('h4','hteam','Àç°æ',30,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('h5','hteam','ÁØ',27,'ÆÀ¿ø');
 
 --cteam
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('c1','cteam','ÃÖÁ¤ÈÆ',32,'ÆÀÀå');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('c2','cteam','À±È£',31,'ÆÀ¿ø');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('c3','cteam','°¡Àº',29,'ÆÀ¿ø');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('c4','cteam','Á¤ÈÆ',23,'ÆÀ¿ø');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('c5','cteam','½ÂÅÂ',30,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('c1','cteam','ÃÖÁ¤ÈÆ',32,'ÆÀÀå');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('c2','cteam','À±È£',31,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('c3','cteam','°¡Àº',29,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('c4','cteam','Á¤ÈÆ',23,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('c5','cteam','½ÂÅÂ',30,'ÆÀ¿ø');
 
 --steam
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('s1','steam','½ÂÈ£',27,'ÆÀÀå');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('s2','steam','¼ÒÁø',26,'ÆÀ¿ø');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('s3','steam','ÀÌ½½',29,'ÆÀ¿ø');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('s4','steam','ÁøÅÂ',26,'ÆÀ¿ø');
-insert into teamw( mem_id, team_id, mem_name, mem_age,roll)
-values('s5','steam','´©¸®',30,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('s1','steam','½ÂÈ£',27,'ÆÀÀå');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('s2','steam','¼ÒÁø',26,'ÆÀ¿ø');
+INSERT INTO TEAMW(MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('s3','steam','ÀÌ½½',29,'ÆÀ¿ø');
+INSERT INTO TEAMW( MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('s4','steam','ÁøÅÂ',26,'ÆÀ¿ø');
+INSERT INTO TEAMW(MEM_ID, TEAM_ID, MEM_NAME, MEM_AGE,ROLL)
+VALUES('s5','steam','´©¸®',30,'ÆÀ¿ø');
+
+SELECT * FROM MEMBER;
+
+
+ALTER TABLE TEAMZ
+RENAME TO PROJECT_TEAM;
+ALTER TABLE TEAMW
+RENAME TO MEMBER;
+
+ALTER TABLE MEMBER
+RENAME COLUMN MEM_NAME TO NAME;
+
+ALTER TABLE MEMBER
+RENAME COLUMN MEM_AGE TO AGE;
+
+
+--SUBJECT Å×ÀÌºí »ý¼º
+--°ú¸ñ : JAVA,SQL,HTML5,R,PYTHON
+CREATE TABLE SUBJECT(
+    SUB_SEQ DECIMAL PRIMARY KEY,
+    SUB_NAME VARCHAR2(20) 
+);
+
+--SEQUENCE»ý¼º
+CREATE SEQUENCE SUB_SEQ;
+--°á°ú È®ÀÎ
+SELECT * FROM SUBJECT;
+
+INSERT INTO SUBJECT(
+    SUB_SEQ, SUB_NAME
+)
+values(
+    SUB_SEQ.NEXTVAL, 'JAVA'
+);
+
+INSERT INTO SUBJECT(
+    SUB_SEQ, SUB_NAME
+)
+values(
+    SUB_SEQ.NEXTVAL, 'SQL'
+);
+
+INSERT INTO SUBJECT(
+    SUB_SEQ, SUB_NAME
+)
+values(
+    SUB_SEQ.NEXTVAL, 'HTML5'
+);
+INSERT INTO SUBJECT(
+    SUB_SEQ, SUB_NAME
+)
+values(
+    SUB_SEQ.NEXTVAL, 'R'
+);
+INSERT INTO SUBJECT(
+    SUB_SEQ, SUB_NAME
+)
+values(
+    SUB_SEQ.NEXTVAL, 'PYTHON'
+);
+
+
+--RECORDÅ×ÀÌºí »ý¼º
+CREATE TABLE RECORD(
+    RECORD_SEQ DECIMAL PRIMARY KEY,
+    GRADE VARCHAR2(20),
+    AGE VARCHAR2(20)
+);
+CREATE SEQUENCE RECORD_SEQ;
+
+SELECT * FROM RECORD;
+
+--EXAMÅ×ÀÌºí »ý¼º
+
+CREATE TABLE EXAM(
+    EXAM_SEQ DECIMAL PRIMARY KEY,
+    MEM_ID VARCHAR2(20),
+    SUB_SEQ DECIMAL,
+    MONTH VARCHAR2(20),
+    SCORE VARCHAR2(20),
+    RECORD_SEQ DECIMAL
+);
+CREATE SEQUENCE EXAM_SEQ;
+
+
+--¿Ü·¡Å° ¼³Á¤
+ALTER TABLE EXAM ADD CONSTRAINT EXAM_FK_MEM_ID
+	FOREIGN KEY(MEM_ID) REFERENCES MEMBER(MEM_ID);
+	
+ALTER TABLE EXAM ADD CONSTRAINT EXAM_FK_SUB_SEQ
+FOREIGN KEY(SUB_SEQ) REFERENCES SUBJECT(SUB_SEQ);
+
+ALTER TABLE EXAM ADD CONSTRAINT EXAM_FK_RECORD_SEQ
+FOREIGN KEY(RECORD_SEQ) REFERENCES RECORD(RECORD_SEQ);
+
+
+
+SELECT * FROM member;
+
+UPDATE MEMBER SET PASSWORD = '1234'
+WHERE PASSWORD LIKE 'aaaa'
+AND MEM_ID LIKE 'a1';
+
+ALTER TABLE MEMBER ADD(PASSWORD VARCHAR2(20));
+
+
+UPDATE MEMBER SET PASSWORD='1234';
+
+SELECT 
+    MEM_ID USERID ,
+    TEAM_ID TEAMID,
+    NAME,
+    AGE,
+    ROLL,
+    PASSWORD,
+    SSN
+FROM MEMBER
+WHERE MEM_ID LIKE 'a1';
+
+COMMIT;
+
+ALTER TABLE MEMBER
+RENAME COLUMN AGE TO SSN;
+
+ALTER TABLE MEMBER
+DROP COLUMN SSN;
+
+ALTER TABLE MEMBER ADD(SSN VARCHAR2(20));
+ALTER TABLE MEMBER ADD(AGE VARCHAR2(20));
+
+
+
+INSERT INTO MEMBER(MEM_ID,NAME,PASSWORD,SSN)values('t1','test','1234','891005-1156247');
+
+SELECT * FROM MEMBER;
+
+UPDATE MEMBER SET AGE = '30' WHERE MEM_ID LIKE 's5';
+
+DELETE FROM MEMBER 
+WHERE MEM_ID LIKE 'b3'
+AND PASSWORD like '2345';
+
+
+
+select
+    rownum n,
+    a.*
+from(
+    SELECT * FROM MEMBER
+order by MEM_ID) a
+;
+
+commit;

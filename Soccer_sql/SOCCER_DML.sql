@@ -315,67 +315,67 @@ where p.position in(
 --20
 --2012년 월별 경기수
 select
-    (select count(*)
-    from schedule s
-    where 
-        substr(s.sche_date,0,6) like '201201'
-    ) "1월",
-    (select count(*)
-    from schedule s
-    where 
-        substr(s.sche_date,0,6) like '201202'
-    ) "2월",
-    (select count(*)
-    from schedule s
-    where 
-        substr(s.sche_date,0,6) like '201203'
-    ) "3월",
-    (select count(*)
-    from schedule s
-    where 
-        substr(s.sche_date,0,6) like '201204'
-    ) "4월",
-    (select count(*)
-    from schedule s
-    where 
-        substr(s.sche_date,0,6) like '201205'
-    ) "5월",
-    (select count(*)
-    from schedule s
-    where 
-        substr(s.sche_date,0,6) like '201206'
-    ) "6월",
-    (select count(*)
-    from schedule s
-    where 
-        substr(s.sche_date,0,6) like '201207'
-    ) "7월",
-   (select count(*)
-    from schedule s
-    where 
-        substr(s.sche_date,0,6) like '201208'
-    ) "8월",
-    (select count(*)
-    from schedule s
-    where 
-        substr(s.sche_date,0,6) like '201209'
-    ) "9월",
-    (select count(*)
-    from schedule s
-    where 
-        substr(s.sche_date,0,6) like '201210'
-    ) "10월",
-    (select count(*)
-    from schedule s
-    where 
-        substr(s.sche_date,0,6) like '201211'
-    ) "11월",
-    (select count(*)
-    from schedule s
-    where 
-        substr(s.sche_date,0,6) like '201212'
-    ) "12월"
-from dual
+        (select count(*)
+        from schedule s
+        where 
+            substr(s.sche_date,0,6) like '201201'
+        ) JAN,
+        (select count(*)
+        from schedule s
+        where 
+            substr(s.sche_date,0,6) like '201202'
+        ) FEB,
+        (select count(*)
+        from schedule s
+        where 
+            substr(s.sche_date,0,6) like '201203'
+        ) MAR,
+        (select count(*)
+        from schedule s
+        where 
+            substr(s.sche_date,0,6) like '201204'
+        ) APR,
+        (select count(*)
+        from schedule s
+        where 
+            substr(s.sche_date,0,6) like '201205'
+        ) MAY,
+        (select count(*)
+        from schedule s
+        where 
+            substr(s.sche_date,0,6) like '201206'
+        ) JUN,
+        (select count(*)
+        from schedule s
+        where 
+            substr(s.sche_date,0,6) like '201207'
+        ) JUL,
+        (select count(*)
+        from schedule s
+        where 
+            substr(s.sche_date,0,6) like '201208'
+        ) AUG,
+        (select count(*)
+        from schedule s
+        where 
+            substr(s.sche_date,0,6) like '201209'
+        ) SEP,
+        (select count(*)
+        from schedule s
+        where 
+            substr(s.sche_date,0,6) like '201210'
+        ) OCT,
+        (select count(*)
+        from schedule s
+        where 
+            substr(s.sche_date,0,6) like '201211'
+        ) NOV,
+        (select count(*)
+        from schedule s
+        where 
+            substr(s.sche_date,0,6) like '201212'
+        ) DEC
+        from DUAL
 ;
 
 
@@ -689,6 +689,26 @@ FROM(SELECT
      ORDER BY 점수차 DESC) A
 WHERE ROWNUM LIKE 1
 ;
+
+SELECT
+        K.SCHE_DATE MATCHDATE,
+        HT.TEAM_NAME || ' VS ' || AT.TEAM_NAME MATCH,
+        CASE
+            WHEN K.HOME_SCORE >= K.AWAY_SCORE THEN (K.HOME_SCORE - K.AWAY_SCORE)
+            ELSE K.AWAY_SCORE - K.HOME_SCORE
+        END SCOREGAP
+     FROM
+        SCHEDULE K
+        JOIN TEAM HT
+            ON K.HOMETEAM_ID LIKE HT.TEAM_ID
+        JOIN TEAM AT
+            ON K.AWAYTEAM_ID LIKE AT.TEAM_ID
+     WHERE
+        K.SCHE_DATE LIKE '2012%'
+        AND K.GUBUN LIKE 'Y'
+    
+     ORDER BY SCOREGAP DESC
+     ;
 
 --29
 --좌석수대로 스타디움 순서 매기기
